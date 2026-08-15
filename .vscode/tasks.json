@@ -1,0 +1,77 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "0. Diagnose adaptation",
+      "type": "shell",
+      "command": "python scripts/diagnose_adaptation.py --data-root ./data --dataset BSDS500 --max-images 50 --out-dir ./results/diagnostics",
+      "problemMatcher": []
+    },
+    {
+      "label": "1. Generate edge maps (all methods)",
+      "type": "shell",
+      "command": "python scripts/run_experiment.py --data-root ./data --output-root ./output --datasets BSDS500 UDED --methods AGWi GWi GWC Canny Sobel PC",
+      "problemMatcher": []
+    },
+    {
+      "label": "2. Evaluate (Berkeley protocol)",
+      "type": "shell",
+      "command": "python scripts/evaluate_v2.py --data-root ./data --output-root ./output --results-dir ./results/eval --datasets BSDS500 UDED --n-thresholds 99",
+      "problemMatcher": []
+    },
+    {
+      "label": "3a. Ablation (critical variants, BSDS500)",
+      "type": "shell",
+      "command": "python scripts/run_ablation.py --data-root ./data --output-root ./output --datasets BSDS500 --variants critical",
+      "problemMatcher": []
+    },
+    {
+      "label": "3b. Evaluate ablation",
+      "type": "shell",
+      "command": "python scripts/evaluate_v2.py --data-root ./data --output-root ./output --results-dir ./results/eval_ablation --datasets BSDS500 --n-thresholds 99",
+      "problemMatcher": []
+    },
+    {
+      "label": "4. Statistics (bootstrap and paired tests)",
+      "type": "shell",
+      "command": "python scripts/stats_analysis.py --counts-dir ./results/eval/counts --dataset BSDS500 --reference AGWi --n-boot 2000 --out-dir ./results/stats && python scripts/stats_analysis.py --counts-dir ./results/eval/counts --dataset UDED --reference AGWi --n-boot 2000 --out-dir ./results/stats",
+      "problemMatcher": []
+    },
+    {
+      "label": "5. Validate the activity estimate",
+      "type": "shell",
+      "command": "python scripts/validate_rho.py --data-root ./data --dataset BSDS500 --window 15 --out-dir ./results/diagnostics",
+      "problemMatcher": []
+    },
+    {
+      "label": "6a. Compute stratum tertiles (training split)",
+      "type": "shell",
+      "command": "python scripts/evaluate_stratified_v2.py --data-root ./data --compute-tertiles --tertile-source BSDS500_train --tertile-file tertiles.json",
+      "problemMatcher": []
+    },
+    {
+      "label": "6b. Stratified evaluation",
+      "type": "shell",
+      "command": "python scripts/evaluate_stratified_v2.py --data-root ./data --output-root ./output --results-dir ./results/eval --datasets BSDS500 UDED --methods AGWi GWi GWC Canny --tertile-file tertiles.json",
+      "problemMatcher": []
+    },
+    {
+      "label": "7. Error characteristics",
+      "type": "shell",
+      "command": "python scripts/error_metrics.py --data-root ./data --output-root ./output --results-dir ./results/eval --dataset BSDS500 --methods AGWi GWi GWC Canny --target-recall 0.5",
+      "problemMatcher": []
+    },
+    {
+      "label": "8. Runtime benchmark (run alone, idle machine)",
+      "type": "shell",
+      "command": "python scripts/benchmark_runtime.py --data-root ./data --repeats 3 --out ./results/tables/runtime_table12.csv",
+      "problemMatcher": []
+    },
+    {
+      "label": "9. Generate all figures",
+      "type": "shell",
+      "command": "python scripts/generate_final_figures.py --data-root ./data --output-root ./output --eval-results ./results/eval --eval-grid ./results/eval_grid --figures-dir ./figures --figures all",
+      "problemMatcher": []
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "python.analysis.extraPaths": ["./scripts"],
+  "python.terminal.activateEnvironment": true,
+  "files.exclude": {
+    "**/__pycache__": true,
+    "**/*.pyc": true
+  },
+  "editor.rulers": [79],
+  "[python]": {
+    "editor.tabSize": 4,
+    "editor.insertSpaces": true
+  }
+}

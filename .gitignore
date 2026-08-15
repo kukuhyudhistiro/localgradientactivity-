@@ -1,0 +1,25 @@
+# Datasets and generated edge maps are not tracked
+data/
+output/
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+env/
+
+# OS and editor
+.DS_Store
+Thumbs.db
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+.idea/
+
+# Large or transient artefacts
+*.pdf
+!manuscript/*.pdf
+runtime_logs/*.csv
+!results/tables/runtime_table12.csv

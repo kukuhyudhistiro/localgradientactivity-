@@ -1,0 +1,12 @@
+cff-version: 1.2.0
+message: "If you use this code, please cite the accompanying article."
+title: "Local Gradient Activity: per-pixel Gabor kernel modulation for edge-based boundary detection"
+authors:
+  - family-names: Yudhistiro
+    given-names: Kukuh
+  - family-names: Basuki
+    given-names: Ruri S.
+  - family-names: Rijati
+    given-names: Nova
+repository-code: "https://github.com/kukuhyudhistiro/localgradientactivity-"
+license: MIT
