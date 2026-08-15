@@ -31,13 +31,8 @@ Files in this repository, with their role and provenance.
 | `results/stats/paired_tests_BSDS500.csv` | 18 | Step 4 |
 | `results/diagnostics/runtime_grid_raw.csv` | 800 | Retained as evidence of load drift |
 
-## Documentation (7 files)
 
-`README.md`, `PACKAGE_MANIFEST.md`, `docs/REPRODUCIBILITY.md`,
-`docs/PROJECT_STRUCTURE.md`, `docs/revision_log_id.md`,
-`docs/manuscript_notes_id.md`, `figures/README.md`.
 
-Total tracked files: 34.
 
 ## Not included
 
