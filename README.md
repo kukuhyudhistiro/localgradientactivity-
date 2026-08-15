@@ -62,8 +62,6 @@ directly.
 scripts/      All experiment code
 results/      Result tables, statistics, and diagnostics as CSV
 figures/      Generated figures (created by the figure script)
-manuscript/   Revised manuscript
-docs/         Revision log and manuscript notes
 data/         Datasets (not tracked, see below)
 output/       Generated edge maps (not tracked)
 ```
