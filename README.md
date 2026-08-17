@@ -293,7 +293,7 @@ rather than a mean of per-image values.
 
 | Repository | Content |
 |---|---|
-| `kukuhyudhistiro/gwi-odps` | Imaginary-only Gabor wavelet with orientation-aware double-peak suppression |
+| `kukuhyudhistiro/gwi-odps` | Imaginary-only Gabor wavelet with orientation-aware double-peak suppression (submit to Digital Signal Processing - Under Review 4 June 2026|
 | `kukuhyudhistiro/agwi` | Earlier version of the present work, retained so that the submitted results remain reproducible |
 
 The Canny definition used here matches the one in `gwi-odps`, and the two
